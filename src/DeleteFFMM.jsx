@@ -57,12 +57,13 @@ const DeleteFFMM = () => {
                         <th>AGF</th>
                         <th>Categoría</th>
                         <th>Serie</th>
+                        <th>RUN</th>
                         <th>1M
                         </th>
-                        <th>YTD
+                        {/* <th>YTD
                         </th>
                         <th>12M
-                        </th>
+                        </th> */}
                         <th>
                             Riesgo
                         </th>   
@@ -78,9 +79,10 @@ const DeleteFFMM = () => {
                             <td>{fondo.agf}</td>
                             <td>{fondo.category}</td>
                             <td>{fondo.series}</td>
+                            <td>{fondo.run}</td>
                             <td className={fondo.monthly.startsWith('-') ? 'rojo' : 'verde'}>{fondo.monthly}</td>
-                            <td className={fondo.ytd.startsWith('-') ? 'rojo' : 'verde'}>{fondo.ytd}</td>
-                            <td className={fondo.yearly.startsWith('-') ? 'rojo' : 'verde'}>{fondo.yearly}</td>
+                            {/* <td className={fondo.ytd.startsWith('-') ? 'rojo' : 'verde'}>{fondo.ytd}</td>
+                            <td className={fondo.yearly.startsWith('-') ? 'rojo' : 'verde'}>{fondo.yearly}</td> */}
                             <td>
                                 {fondo.riskLevel === 'Bajo' && (
                                     <img src={lowRiskImage} alt="Bajo Riesgo" />
