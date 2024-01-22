@@ -1,0 +1,20 @@
+h2 {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.confirm-button {
+    margin-right: 2%;
+}
+
+.select-file-box {
+    max-width: 60%;
+    width: 60%;
+}
+
+.confirm-container {
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+    justify-content: center;
+}
