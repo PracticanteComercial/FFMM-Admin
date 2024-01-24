@@ -66,7 +66,7 @@ const DeleteFFMM = () => {
                         </th> */}
                         <th>
                             Riesgo
-                        </th>   
+                        </th>
                         <th>Reglamento</th>
                         <th>Ficha</th>
                         <th>ELIMINAR</th>
@@ -95,20 +95,20 @@ const DeleteFFMM = () => {
                                 )}
                             </td>
                             <td>
-                                <Tooltip title="Descargar Reglamento Interno">
+                                <Tooltip title="Abrir Reglamento Interno">
                                     <Button
                                         shape="circle"
                                         icon={<FilePdfOutlined />}
-                                        onClick={() => window.open('https://www.vectorcapital.cl/', '_blank')}
+                                        onClick={() => window.open(fondo.bylawLink, '_blank')}
                                     />
                                 </Tooltip>
                             </td>
                             <td>
-                                <Tooltip title="Descargar Ficha">
+                                <Tooltip title="Abrir Ficha">
                                     <Button
                                         shape="circle"
                                         icon={<FileTextOutlined />}
-                                        onClick={() => window.open('https://www.vectorcapital.cl/', '_blank')}
+                                        onClick={() => window.open(fondo.dataSheetLink, '_blank')}
                                     />
                                 </Tooltip>
                             </td>
