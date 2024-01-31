@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { LoadingOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { message, Upload, Button, Tooltip } from 'antd';
-import { UploadOutlined, FileAddOutlined } from '@ant-design/icons';
+import { UploadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { InboxOutlined } from '@ant-design/icons';
-import { QuestionCircleOutlined, FilePdfOutlined, FileTextOutlined, MoneyCollectTwoTone } from '@ant-design/icons';
 import "./CSS/UploadExcelFile.css";
 
 const { Dragger } = Upload;
@@ -22,7 +20,7 @@ const UploadExcelFile = () => {
             formData.append('file', file.originFileObj);
         });
 
-        fetch('http://localhost:3001/FFMMs/upload', {
+        fetch(`${VITE_BACKEND_URL}/FFMMs/upload`, {
             method: 'POST',
             body: formData,
         })
@@ -71,9 +69,6 @@ const UploadExcelFile = () => {
                     <InboxOutlined />
                 </p>
                 <p className="ant-upload-text">Haz click o arrastre archivo a esta área para cargar archivo</p>
-                {/* <p className="ant-upload-hint">
-                    El cambio se afectará a la vista oficial de la página web, confirme que el archivo es el correcto antes de subir y mandar los cambios.
-                </p> */}
             </Dragger>
             <div className='confirm-container'>
                 <Button className="confirm-button" type="primary" icon={<UploadOutlined />} onClick={handleUpload}>

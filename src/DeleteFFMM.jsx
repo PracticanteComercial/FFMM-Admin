@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tooltip, Button, Popconfirm } from 'antd';
-import { QuestionCircleOutlined, FilePdfOutlined, FileTextOutlined, MoneyCollectTwoTone, DeleteOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined, FilePdfOutlined, FileTextOutlined, DeleteOutlined } from '@ant-design/icons';
 import lowRiskImage from './assets/low.jpg';
 import moderateRiskImage from './assets/medium.jpg';
 import highRiskImage from './assets/high.jpg';
@@ -12,7 +12,7 @@ const DeleteFFMM = () => {
     useEffect(() => {
         const fetchFfmmData = async () => {
             try {
-                const response = await fetch('http://localhost:3001/FFMMs');
+                const response = await fetch(`${VITE_BACKEND_URL}/FFMMs`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
                 }
@@ -27,14 +27,13 @@ const DeleteFFMM = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3001/FFMMs/${id}`, {
+            const response = await fetch(`${VITE_BACKEND_URL}/FFMMs/${id}`, {
                 method: 'DELETE',
             });
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
-
             // Actualizar la lista de fondos después de eliminar el fondo
             const updatedFondos = fondos.filter((fondo) => fondo.id !== id);
             setFondos(updatedFondos);
@@ -60,10 +59,6 @@ const DeleteFFMM = () => {
                         <th>RUN</th>
                         <th>1M
                         </th>
-                        {/* <th>YTD
-                        </th>
-                        <th>12M
-                        </th> */}
                         <th>
                             Riesgo
                         </th>
@@ -81,8 +76,6 @@ const DeleteFFMM = () => {
                             <td>{fondo.series}</td>
                             <td>{fondo.run}</td>
                             <td className={fondo.monthly.startsWith('-') ? 'rojo' : 'verde'}>{fondo.monthly}</td>
-                            {/* <td className={fondo.ytd.startsWith('-') ? 'rojo' : 'verde'}>{fondo.ytd}</td>
-                            <td className={fondo.yearly.startsWith('-') ? 'rojo' : 'verde'}>{fondo.yearly}</td> */}
                             <td>
                                 {fondo.riskLevel === 'Bajo' && (
                                     <img src={lowRiskImage} alt="Bajo Riesgo" />
@@ -113,7 +106,6 @@ const DeleteFFMM = () => {
                                 </Tooltip>
                             </td>
                             <td>
-                                {/* <Button type="primary" danger shape="circle" size="large" icon={<DeleteOutlined />} /> */}
                                 <Popconfirm
                                     title="¿Estás seguro de eliminar este fondo?"
                                     onConfirm={() => handleDelete(fondo.id)}
