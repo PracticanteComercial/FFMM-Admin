@@ -6,6 +6,8 @@ import moderateRiskImage from './assets/medium.jpg';
 import highRiskImage from './assets/high.jpg';
 import './CSS/DeleteFFMM.css';
 
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const DeleteFFMM = () => {
     const [fondos, setFondos] = useState([]);
 
@@ -34,7 +36,7 @@ const DeleteFFMM = () => {
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
-            // Actualizar la lista de fondos después de eliminar el fondo
+            // Actualizar la lista xde fondos después de eliminar el fondo
             const updatedFondos = fondos.filter((fondo) => fondo.id !== id);
             setFondos(updatedFondos);
         } catch (error) {

@@ -5,6 +5,7 @@ import { InboxOutlined } from '@ant-design/icons';
 import "./CSS/UploadExcelFile.css";
 
 const { Dragger } = Upload;
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const UploadExcelFile = () => {
     const [fileList, setFileList] = useState([]);
