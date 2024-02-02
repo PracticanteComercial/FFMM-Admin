@@ -1,6 +1,6 @@
 # React + Vite
 
-## Para correr la aplicación 
+## Para correr la aplicación: entrar a la carpeta frontend
 Estando dentro la carpeta frontend:
 ```npm install```
 ```npm run dev```
